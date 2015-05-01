@@ -7,9 +7,22 @@ Repos: CRAN=http://cran.rstudio.com,
     BioCexp=http://bioconductor.org/packages/3.0/data/experiment,
     BioCextra=http://bioconductor.org/packages/3.0/extra
 
+Package: BBmisc
+Source: CRAN
+Version: 1.9
+Hash: 0a03b49785d622142a895121fa408122
+Requires: checkmate
+
 Package: BH
 Source: CRAN
 Version: 1.55.0-3
+
+Package: BatchJobs
+Source: CRAN
+Version: 1.6
+Hash: 5f5e3053ecb2cc5a8dd894d0446fc144
+Requires: BBmisc, DBI, RSQLite, brew, checkmate, digest, fail,
+    sendmailR, stringr
 
 Package: DBI
 Source: CRAN
@@ -24,8 +37,14 @@ Hash: 9a3ac4e5fd8059af0fc5156bcb019bbc
 Package: RCurl
 Source: CRAN
 Version: 1.95-4.6
-Requires: bitops
 Hash: a4d86df231587d1eae56f29c278bad0d
+Requires: bitops
+
+Package: RSQLite
+Source: CRAN
+Version: 1.0.0
+Hash: 6ec4dc154e68485971a5baf3817e61a8
+Requires: DBI
 
 Package: Rcpp
 Source: CRAN
@@ -37,6 +56,11 @@ Source: CRAN
 Version: 0.1
 Hash: 4b419cfdc33a3019a7f3c6f0cdea6c38
 
+Package: base64enc
+Source: CRAN
+Version: 0.1-2
+Hash: 290e385e048cebab0e8d8d301b84ac75
+
 Package: bitops
 Source: CRAN
 Version: 1.0-6
@@ -47,6 +71,11 @@ Source: CRAN
 Version: 1.0-6
 Hash: 9d92cc5ac60123fdb7b0daa3ae83bf99
 
+Package: checkmate
+Source: CRAN
+Version: 1.5.2
+Hash: 06a22198c165adff2e2ccb5ff11a6441
+
 Package: chron
 Source: CRAN
 Version: 2.3-45
@@ -55,15 +84,15 @@ Hash: 65cf73bf43c26a4578bb251499de38cd
 Package: data.table
 Source: CRAN
 Version: 1.9.4
-Requires: chron, reshape2
 Hash: 905b6356d387a3a7e13ef62c4cf6f7e3
+Requires: chron, reshape2
 
 Package: devtools
 Source: CRAN
 Version: 1.7.0
+Hash: 56919e22e0d3f7131e93bda1a869730e
 Requires: RCurl, digest, evaluate, httr, jsonlite, memoise, roxygen2,
     rstudioapi, whisker
-Hash: 56919e22e0d3f7131e93bda1a869730e
 
 Package: digest
 Source: CRAN
@@ -73,20 +102,26 @@ Hash: 89dc4c8734dad5322bb3c5c2af09056f
 Package: dplyr
 Source: CRAN
 Version: 0.4.1
-Requires: BH, DBI, R6, Rcpp, assertthat, lazyeval, magrittr
 Hash: 2a1e53656807647ec08ad0b3c1616cb3
+Requires: BH, DBI, R6, Rcpp, assertthat, lazyeval, magrittr
 
 Package: evaluate
 Source: CRAN
 Version: 0.7
-Requires: stringr
 Hash: 96c38894bf65a2e890f7c6ec840a6466
+Requires: stringr
+
+Package: fail
+Source: CRAN
+Version: 1.2
+Hash: fc1554bcf77bd41da570a0e26dbaac3a
+Requires: BBmisc
 
 Package: httr
 Source: CRAN
 Version: 0.6.1
-Requires: R6, RCurl, digest, jsonlite, mime, stringr
 Hash: 3b082465d75a7a0c3d09ad06a0905aff
+Requires: R6, RCurl, digest, jsonlite, mime, stringr
 
 Package: jsonlite
 Source: CRAN
@@ -106,8 +141,8 @@ Hash: 38d492cf072bc9f3c73bda2aee3d0e23
 Package: memoise
 Source: CRAN
 Version: 0.2.1
-Requires: digest
 Hash: fc52fa39dfd216c44d64812ff31b1c67
+Requires: digest
 
 Package: mime
 Source: CRAN
@@ -122,25 +157,41 @@ Hash: 16c72d5c802629fae5a4abca901e0199
 Package: plyr
 Source: CRAN
 Version: 1.8.2
-Requires: Rcpp
 Hash: 4997cfd365c935eaaef569f25546b027
+Requires: Rcpp
+
+Package: purrr
+Source: github
+Version: 0.0.0.9000
+Hash: eb3512f88fd7e7d34a6268018b616e86f51b79a0
+Requires: magrittr
+GithubRepo: purrr
+GithubUsername: hadley
+GithubRef: master
+GithubSha1: eb3512f88fd7e7d34a6268018b616e86f51b79a0
 
 Package: reshape2
 Source: CRAN
 Version: 1.4.1
-Requires: Rcpp, plyr, stringr
 Hash: d3d77b083fd5485f674487aa23011ea7
+Requires: Rcpp, plyr, stringr
 
 Package: roxygen2
 Source: CRAN
 Version: 4.1.1
-Requires: Rcpp, brew, digest, stringr
 Hash: e030acbd1526c09f7b74315c40f87480
+Requires: Rcpp, brew, digest, stringr
 
 Package: rstudioapi
 Source: CRAN
 Version: 0.3.1
 Hash: ee415a4fe305c6222630d8e5572781e7
+
+Package: sendmailR
+Source: CRAN
+Version: 1.2-1
+Hash: 5a8c432c5551326579b150e8d0c4d458
+Requires: base64enc
 
 Package: stringi
 Source: CRAN
@@ -155,8 +206,8 @@ Hash: cdde0cfa0f52cffeaca23a11a3899779
 Package: tidyr
 Source: CRAN
 Version: 0.2.0
-Requires: dplyr, lazyeval, reshape2, stringi
 Hash: 3b379415e9e88d4f559b380819893304
+Requires: dplyr, lazyeval, reshape2, stringi
 
 Package: whisker
 Source: CRAN
@@ -166,8 +217,8 @@ Hash: 186ab2937fec1694c8a63009a2389c4e
 Package: xgboost
 Source: github
 Version: 0.3-4
-Requires: data.table, magrittr, stringr
 Hash: 654aa0b3b54412880050662d77ee0bfdd27921dc
+Requires: data.table, magrittr, stringr
 GithubRepo: xgboost
 GithubUsername: dmlc
 GithubRef: master
