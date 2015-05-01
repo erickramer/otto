@@ -13,7 +13,7 @@ train1 = train %>%
 train2 = train %>%
   anti_join(train1 %>% select(id)) %>%
   group_by(target) %>%
-  sample_frace(0.8) %>%
+  sample_frac(0.8) %>%
   ungroup
 
 train3 = train %>%
