@@ -18,11 +18,17 @@ train2 = train %>%
 
 train3 = train %>%
   anti_join(train1 %>% select(id)) %>%
-  anti_join(train2 %>% select(id)) %>%
+  anti_join(train2 %>% select(id))
   
 save(train, file="./data/train.Rdata")
 save(train1, file="./data/train1.Rdata")
 save(train2, file="./data/train2.Rdata")
 save(train3, file="./data/train3.Rdata")
-
 save(test, file="./data/test.Rdata")
+
+sets = list(train1=train1,
+            train2=train2,
+            train3=train3,
+            test=test)
+
+save(sets, file="./data/sets.Rdata")
