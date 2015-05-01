@@ -16,9 +16,7 @@ y = train1$target %>%
 y = y-1
 
 params = list(
-  objective="multi::softprob",
-  num_class=9,
-  label=y
+  
   )
 
 m = xgboost(params=params,

@@ -1,10 +1,13 @@
 library("xgboost")
 library("Matrix")
 library("BatchJobs")
+library("zip")
 
 ## train and predict function 
 
 train_and_predict = function(params, at, ...){
+  
+  packrat::init(project="~/Projects/otto")
   
   require("dplyr")
   require("Matrix")
@@ -47,9 +50,26 @@ train_and_predict = function(params, at, ...){
   return(p)
 }
 
+param_grid = expand.grid(
+  eta=c(0.03, 0.1, 0.3, 1),
+  max.depth=1:12,
+  subsample=c(0.5, 0.75, 1)
+)
 
-train_and_predict(params, 
-                  metrics=list("mlogloss"),
-                  objective="multi:softprob",
-                  nrounds=10,
-                  num_class=9)
+params =  zip(param_grid)
+
+more.args = list(at = 2^(4:12),
+                 nrounds = max(at),
+                 objective = "multi:softprob",
+                 metrics=list("mlogloss")
+)
+
+reg = makeRegistry("xgb_scan",
+                   file.dir="xgb_scan")
+
+batchMap(reg, 
+         train_and_predict, 
+         params,
+         more.args=more.args)
+
+submitJobs(reg)
