@@ -1,7 +1,9 @@
+packrat::init("~/Projects/otto")
+
 library("xgboost")
 library("Matrix")
 library("BatchJobs")
-library("zip")
+library("purrr")
 
 ## train and predict function 
 
